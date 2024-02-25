@@ -9,23 +9,23 @@ namespace GB20284Local.Models
         public event PropertyChangedEventHandler? PropertyChanged;
         public void NotifyPropertyChange([CallerMemberName] string propertyName = "")
         {
-            var handler = PropertyChanged;
-            if (handler != null)
-            {
-                var e = new PropertyChangedEventArgs(propertyName);
-                foreach (PropertyChangedEventHandler h in handler.GetInvocationList())
-                {
-                    var synch = h.Target as ISynchronizeInvoke;
-                    if (synch != null && synch.InvokeRequired)
-                    {
-                        synch.Invoke(h, new object[] { this, e });
-                    }
-                    else
-                    {
-                        h(this, e);
-                    }
-                }
-            }
+            //var handler = PropertyChanged;
+            //if (handler != null)
+            //{
+            //    var e = new PropertyChangedEventArgs(propertyName);
+            //    foreach (PropertyChangedEventHandler h in handler.GetInvocationList())
+            //    {
+            //        var synch = h.Target as ISynchronizeInvoke;
+            //        if (synch != null && synch.InvokeRequired)
+            //        {
+            //            synch.Invoke(h, new object[] { this, e });
+            //        }
+            //        else
+            //        {
+            //            h(this, e);
+            //        }
+            //    }
+            //}
         }
     }
 }

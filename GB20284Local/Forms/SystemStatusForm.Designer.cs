@@ -38,9 +38,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(44, 50);
+            label1.Location = new Point(34, 42);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(97, 27);
+            label1.Size = new Size(78, 21);
             label1.TabIndex = 0;
             label1.Text = "丙烷流量:";
             // 
@@ -50,9 +51,10 @@
             lblGasFlow.FlatStyle = FlatStyle.Flat;
             lblGasFlow.Font = new Font("Arial", 22F, FontStyle.Bold, GraphicsUnit.Point);
             lblGasFlow.ForeColor = Color.FromArgb(255, 255, 15);
-            lblGasFlow.Location = new Point(160, 40);
+            lblGasFlow.Location = new Point(124, 34);
+            lblGasFlow.Margin = new Padding(2, 0, 2, 0);
             lblGasFlow.Name = "lblGasFlow";
-            lblGasFlow.Size = new Size(145, 46);
+            lblGasFlow.Size = new Size(113, 39);
             lblGasFlow.TabIndex = 1;
             lblGasFlow.Text = "8888";
             lblGasFlow.TextAlign = ContentAlignment.MiddleCenter;
@@ -61,9 +63,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(44, 129);
+            label2.Location = new Point(34, 110);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(97, 27);
+            label2.Size = new Size(78, 21);
             label2.TabIndex = 2;
             label2.Text = "氧气浓度:";
             // 
@@ -73,25 +76,28 @@
             lblO2Concentration.FlatStyle = FlatStyle.Flat;
             lblO2Concentration.Font = new Font("Arial", 22F, FontStyle.Bold, GraphicsUnit.Point);
             lblO2Concentration.ForeColor = Color.FromArgb(255, 255, 15);
-            lblO2Concentration.Location = new Point(160, 119);
+            lblO2Concentration.Location = new Point(124, 101);
+            lblO2Concentration.Margin = new Padding(2, 0, 2, 0);
             lblO2Concentration.Name = "lblO2Concentration";
-            lblO2Concentration.Size = new Size(145, 46);
+            lblO2Concentration.Size = new Size(113, 39);
             lblO2Concentration.TabIndex = 3;
             lblO2Concentration.Text = "8888";
             lblO2Concentration.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // SystemStatusForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(971, 523);
+            ClientSize = new Size(755, 445);
             Controls.Add(lblO2Concentration);
             Controls.Add(label2);
             Controls.Add(lblGasFlow);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(2, 3, 2, 3);
             Name = "SystemStatusForm";
             Text = "系统状态";
+            FormClosed += SystemStatusForm_FormClosed;
             Load += SystemStatusForm_Load;
             ResumeLayout(false);
             PerformLayout();
