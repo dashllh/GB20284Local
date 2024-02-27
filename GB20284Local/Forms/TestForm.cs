@@ -17,15 +17,22 @@ namespace GB20284Local.Forms
         {
             try
             {
-                chartHRR.BeginInvoke(new Action(() =>
+                this.Invoke(new Action(() =>
                 {
-                    chartHRR.Series[0].Points.AddXY(model.Counter, 120);
+                    lblCounter.Text = model.Counter.ToString();
+                    chartHRR.Series[0].Points.AddXY(model.Counter, model.SensorData.O2Concentration);
+                    if (model.Counter > 300)
+                    {
+                        chartHRR.Series[0].Points.RemoveAt(0);
+                        chartHRR.ChartAreas[0].AxisX.Minimum = model.Counter - 300;
+                        chartHRR.ChartAreas[0].AxisX.Maximum = model.Counter;
+                    }                    
                 }));
             }
             catch (InvalidOperationException)
             {
-                
-            }            
+
+            }
         }
 
         public void ResetDisplay()

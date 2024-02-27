@@ -39,13 +39,13 @@ namespace Core
         private void DoCaculate()
         {
             // 计算综合测量区管道温度
-           
+
             // 计算qQas
 
             // 计算V298	
 
             // 计算初始值
-            if(_counter == 120)
+            if (_counter == 120)
             {
 
             }
@@ -69,14 +69,14 @@ namespace Core
             // 计算燃烧器切换时间
 
             // 300s以后开始计算FIGRA和SMOGRA,其他时间默认设置为0
-            if(_counter > 300)
+            if (_counter > 300)
             {
                 // 计算FIGRA
 
                 // 计算SMOGRA
             }
             // 1500s以后,保存O2,CO2,Light信号值,用于计算终止平衡条件
-            if(_counter > 1500 && _counter <= 1560)
+            if (_counter > 1500 && _counter <= 1560)
             {
 
             }
@@ -91,7 +91,7 @@ namespace Core
                 return;
 
             // 保存用于计算30s-90s初始值的数据
-            if(_counter <= 90 && _counter >= 30)
+            if (_counter <= 90 && _counter >= 30)
             {
 
             }
@@ -137,6 +137,8 @@ namespace Core
 
             // 更新样品试验视图界面显示
             _viewModel.Counter = _counter;
+            Random rdn = new Random();
+            _viewModel.SensorData.O2Concentration = rdn.NextDouble() * 100 + 100;
             _view?.UpdateDisplay(_viewModel);
 
             // 增加采集计数器
