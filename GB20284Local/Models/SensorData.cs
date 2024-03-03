@@ -13,7 +13,7 @@ namespace GB20284Local.Models
                 if (value != this._propaneGasFlow)
                 {
                     this._propaneGasFlow = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -27,7 +27,7 @@ namespace GB20284Local.Models
                 if (value != this._ductPressureDelta)
                 {
                     this._ductPressureDelta = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace GB20284Local.Models
                 if (value != this._lightTransmission)
                 {
                     this._lightTransmission = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -55,7 +55,7 @@ namespace GB20284Local.Models
                 if (value != this._o2Concentration)
                 {
                     this._o2Concentration = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace GB20284Local.Models
                 if (value != this._co2Concentration)
                 {
                     this._co2Concentration = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace GB20284Local.Models
                 if (value != this._coConcentration)
                 {
                     this._coConcentration = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace GB20284Local.Models
                 if (value != this._ambientPressure)
                 {
                     this._ambientPressure = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -111,7 +111,7 @@ namespace GB20284Local.Models
                 if (value != this._ambientTemperature)
                 {
                     this._ambientTemperature = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace GB20284Local.Models
                 if (value != this._ductTemperature1)
                 {
                     this._ductTemperature1 = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -139,7 +139,7 @@ namespace GB20284Local.Models
                 if (value != this._ductTemperature2)
                 {
                     this._ductTemperature2 = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -153,7 +153,7 @@ namespace GB20284Local.Models
                 if (value != this._ductTemperature3)
                 {
                     this._ductTemperature3 = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }
@@ -167,7 +167,7 @@ namespace GB20284Local.Models
                 if (value != this._gasCoolPipeTemperature)
                 {
                     this._gasCoolPipeTemperature = value;
-                    NotifyPropertyChange();
+                    //NotifyPropertyChange();
                 }
             }
         }

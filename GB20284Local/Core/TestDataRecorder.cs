@@ -1,4 +1,5 @@
-﻿using GB20284Local.Forms;
+﻿using GB20284Local;
+using GB20284Local.Forms;
 using GB20284Local.Models;
 using GB20284Local.ViewModels;
 
@@ -11,6 +12,10 @@ namespace Core
         private readonly System.Threading.Timer _timer;
         // 数据采集计数器
         private int _counter;
+        // 传感器最新数据
+        private SensorData _sensorData;
+        // 传感器原始数据缓存
+        private List<SensorData> _sensorDataBuffer;
         // 样品试验视图窗体对象
         private TestForm? _view;
         // 视图显示模型
@@ -18,6 +23,9 @@ namespace Core
         public TestDataRecorder()
         {
             _timer = new(RecordData);
+            _counter = 0;
+            _sensorData = new SensorData();
+            _sensorDataBuffer = new List<SensorData>();
             _viewModel = new();
         }
 
@@ -33,6 +41,14 @@ namespace Core
         */
         private bool FetchSensorData()
         {
+            var sensorData = AppData.Data?["SensorData"] as SensorData;
+            if(sensorData is not null)
+            {
+                _sensorData.AmbientPressure = sensorData.AmbientPressure;
+                _sensorData.AmbientTemperature = sensorData.AmbientTemperature;
+                // ...
+            }            
+
             return true;
         }
         // 根据获取的最新传感器数据计算对应实时数据
@@ -55,7 +71,6 @@ namespace Core
             {
 
             }
-
             /* 120s以后才计算HRR和SPR,120s以前默认为0(因为此时还没有点火) */
             if (_counter > 120)
             {
@@ -65,7 +80,6 @@ namespace Core
             {
 
             }
-
             // 计算燃烧器切换时间
 
             // 300s以后开始计算FIGRA和SMOGRA,其他时间默认设置为0
@@ -80,7 +94,6 @@ namespace Core
             {
 
             }
-
         }
 
         // 试验数据记录线程函数
@@ -89,6 +102,9 @@ namespace Core
             // 获取传感器最新数据,如果获取失败则跳过本轮,
             if (!FetchSensorData())
                 return;
+
+            // 保存传感器最新数据
+            _sensorDataBuffer.Add(_sensorData);
 
             // 保存用于计算30s-90s初始值的数据
             if (_counter <= 90 && _counter >= 30)
@@ -139,6 +155,7 @@ namespace Core
             _viewModel.Counter = _counter;
             Random rdn = new Random();
             _viewModel.SensorData.O2Concentration = rdn.NextDouble() * 100 + 100;
+            _viewModel.CaculateData.Figra = rdn.NextDouble() * 10 + rdn.Next() % 20;
             _view?.UpdateDisplay(_viewModel);
 
             // 增加采集计数器
@@ -158,7 +175,6 @@ namespace Core
         // 判断初始试验条件
 
         // 判断试验终止条件
-
 
     }
 }
